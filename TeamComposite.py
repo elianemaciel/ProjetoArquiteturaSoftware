@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-from models.Turma import Turma
+from models.Team import Team
 
 
-class TurmaComposite(Turma):
+class TeamComposite(Team):
 
     def __init__(self):
         self._children = []
@@ -18,21 +18,18 @@ class TurmaComposite(Turma):
 
     def get(self, string):
         for item in self._children:
-            if string.lower() == item.codigo.lower():
+            if string.lower() == item.code.lower():
                 return item
 
     def show_all_detail(self):
         for item in self._children:
-            aprovados = item.calc_aprovados()
-            percent_aprovados = item.calc_percent_aprovados(aprovados)
+            approved = item.calc_approved()
+            percent_approved = item.calc_percent_approved(approved)
             print(item)
-            print("Número de aprovados: {}\n Percentual de Aprovados: {}\n".format(
-                    aprovados,
-                    percent_aprovados
+            print("""
+                Número de aprovados: {}
+                Percentual de Aprovados: {}""".format(
+                    approved,
+                    percent_approved
                 )
             )
-
-
-
-
-

@@ -1,7 +1,7 @@
-from .Pessoa import Pessoa
+from .Person import Person
 
 
-class Professor(Pessoa):
+class Teacher(Person):
     """
     Classe que representa a tabela Professor
     """
@@ -9,8 +9,8 @@ class Professor(Pessoa):
     seq = 0
     objects = []
 
-    def __init__(self, nome=""):
-        super().__init__(nome)
+    def __init__(self, name=""):
+        super().__init__(name)
 
     def save(self):
         self.__class__.seq += 1
@@ -22,8 +22,8 @@ class Professor(Pessoa):
         for item in cls.objects:
             if string.lower() == item.name.lower():
                 return item
-        professor = Professor(nome=string)
-        return professor
+        teacher = Teacher(name=string)
+        return teacher
 
     @classmethod
     def all(cls):

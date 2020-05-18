@@ -1,6 +1,6 @@
-class Disciplina():
+class Discipline():
     """
-    Classe que representa a tabela Disciplina
+    Classe que representa a tabela Discipline
     """
 
     seq = 0
@@ -26,6 +26,6 @@ class Disciplina():
         for item in cls.objects:
             if string.lower() == item.name.lower():
                 return item
-        disciplina = Disciplina(name=string)
-        disciplina.save()
-        return disciplina
+        discipline = Discipline(name=string)
+        discipline.save()
+        return discipline

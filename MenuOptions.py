@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 from Register import Register
-from TurmaComposite import TurmaComposite
-from AlunoComposite import AlunoComposite
+from TeamComposite import TeamComposite
+from StudentComposite import StudentComposite
 
 
 class MenuOptions:
@@ -14,8 +14,8 @@ class MenuOptions:
     _instance = None
 
     def __init__(self):
-        self.composite = TurmaComposite()
-        self.composite_aluno = AlunoComposite()
+        self.composite = TeamComposite()
+        self.composite_student = StudentComposite()
 
     @classmethod
     def instance(cls):
@@ -35,36 +35,36 @@ class MenuOptions:
         print(" 5) Sair do sistema\n")
         print("------------------------------------------------------------\n")
 
-    def option_um(self):
+    def option_one(self):
         self.composite.show_all()
 
-    def option_dois(self):
+    def option_two(self):
         register = Register()
-        turma = register.cadastrar_turma(self.composite)
+        turma = register.register_turma(self.composite)
 
         option = 'S'
 
         while option.upper() == "S":
-            aluno = register.cadastrar_aluno(self.composite_aluno)
-            turma.add_aluno(aluno)
+            student = register.register_student(self.composite_student)
+            turma.add_student(student)
             option = input('Deseja cadastrar novo aluno? ')
 
-    def option_tres(self):
-        codigo = input("Digite o código da turma: ")
-        turma = self.composite.get(codigo)
+    def option_three(self):
+        code = input("Digite o código da turma: ")
+        turma = self.composite.get(code)
         print(turma)
-        turma.show_alunos()
+        turma.show_students()
 
-    def option_quatro(self):
+    def option_four(self):
         self.composite.show_all_detail()
-        total, aprovados, percent = self.composite_aluno.statistics()
+        total, approved, percent = self.composite_student.statistics()
         print(
             """
             Total de alunos na instituição: {}
             Total de aprovados: {}
             Percentual de Aprovados: {}""".format(
                 total,
-                aprovados,
+                approved,
                 percent
             )
         )

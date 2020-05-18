@@ -1,0 +1,17 @@
+- Padrão de Criação Singleton
+
+    Este padrão garante a existência de apenas uma instância de uma classe, mantendo um ponto global de acesso ao seu objeto.
+
+    - Arquivo : MenuOptions.py
+    - método classmethod instance() verifica se já existe uma instância da classe e caso não exista, ele cria essa instância e retorna para o usuário.
+
+- O Padrão de projeto Facade:
+
+    Um Facade é um objeto que provê uma interface simplificada para um corpo de código maior, como por exemplo, uma biblioteca de classes.
+
+    - Arquivo: Register.py
+
+- O Padrão Composite:
+
+    Utilizado para representar listas recorrentes de elementos
+    -Arquivos: StudentComposite.py, TeamComposite.py

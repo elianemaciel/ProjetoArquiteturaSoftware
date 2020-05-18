@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
-from models.Disciplina import Disciplina
-from models.Professor import Professor
-from models.Aluno import Aluno
-from models.Turma import Turma
+from models.Discipline import Discipline
+from models.Teacher import Teacher
+from models.Student import Student
+from models.Team import Team
 
 
 class Register(object):
@@ -11,43 +11,43 @@ class Register(object):
     Padrões Façade
     """
 
-    def cadastrar_disciplina(self, disciplina):
-        return Disciplina.get_or_create(disciplina)
+    def register_discipline(self, discipline):
+        return Discipline.get_or_create(discipline)
 
-    def cadastrar_professor(self, professor):
-        return Professor.get_or_create(professor)
+    def register_teacher(self, teacher):
+        return Teacher.get_or_create(teacher)
 
-    def cadastrar_turma(self, composite):
+    def register_turma(self, composite):
         print("Dados para a turma: ")
-        codigo = input("Digite o código da turma: ")
-        nome = input("Digite o nome do professor: ")
-        disciplina_str = input("Digite o disciplina: ")
-        disciplina = self.cadastrar_disciplina(disciplina_str)
-        professor = self.cadastrar_professor(nome)
+        code = input("Digite o código da turma: ")
+        name = input("Digite o nome do professor: ")
+        discipline_str = input("Digite o discipline: ")
+        discipline = self.register_discipline(discipline_str)
+        teacher = self.register_teacher(name)
 
-        turma = Turma(
-            codigo=codigo,
-            disciplina=disciplina,
-            professor=professor
+        turma = Team(
+            code=code,
+            discipline=discipline,
+            teacher=teacher
         )
         composite.add(turma)
 
         return turma
 
-    def cadastrar_aluno(self, composite):
+    def register_student(self, composite):
 
         print("Dados do aluno: ")
-        codigo = input("Digite o código: ")
-        nome = input("Digite o nome do aluno: ")
+        code = input("Digite o código: ")
+        name = input("Digite o nome do aluno: ")
         email = input("Digite o e-mail: ")
-        notas = input("Digite as 3 notas separadas por vírgola: ")
-        list_notas = [int(x) for x in notas.split(",")]
+        punctuation = input("Digite as 3 notas separadas por vírgola: ")
+        list_punctuation = [int(x) for x in punctuation.split(",")]
 
-        aluno = Aluno(
-            codigo=codigo,
-            nome=nome,
+        student = Student(
+            code=code,
+            name=name,
             email=email,
-            notas=list_notas
+            punctuation=list_punctuation
         )
-        composite.add(aluno)
-        return aluno
+        composite.add(student)
+        return student
