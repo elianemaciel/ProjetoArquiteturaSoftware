@@ -25,5 +25,4 @@ def main():
                 break
 
 
-if __name__ == 'main':
-    main()
+main()
